@@ -25,7 +25,7 @@ jobs:
           java-version: '17'
           cache: maven
 
-      - name: Ejecutar pruebas unitarias
+      - name: Ejecutar pruebas unitarias y escenarios BDD
         run: mvn --batch-mode test
 
       - name: Publicar reporte de pruebas
