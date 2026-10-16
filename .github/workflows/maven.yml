@@ -43,3 +43,9 @@ jobs:
           name: reporte-bdd-cucumber
           path: target/cucumber-reports/reporte.html
           if-no-files-found: warn
+
+      - name: Alertar si fallan las pruebas
+        if: failure()
+        run: |
+          echo "## ALERTA: Falló la validación de calidad" >> "$GITHUB_STEP_SUMMARY"
+          echo "Revisar las pruebas unitarias, los escenarios BDD y los registros del pipeline." >> "$GITHUB_STEP_SUMMARY"
